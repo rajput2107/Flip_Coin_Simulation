@@ -1,11 +1,16 @@
 #! /bin/bash
 
-flip=$(( RANDOM%2 ))
+headCount=0
+tailCount=0
 
-if [ $flip -eq 0 ]
-then
-	echo "HEAD"
-else
-	echo "TAIL"
-fi
-
+while [ $headCount -lt 10 ] && [ $tailCount -lt 10 ]
+do
+	toss=$(( RANDOM%2 ))
+	if [ $toss -eq 0 ]
+	then
+		headCount=$(( $headCount+1 ))
+	else
+		(( tailCount++ ))
+	fi
+done
+echo $headCount $tailCount
