@@ -17,6 +17,18 @@ done
 if [ $headCount -eq $tailCount ]
 then
 	echo "Tie"
+	diff1=$(( $headCount-$tailCount ))
+	diff2=$(( $tailCount-$headCount ))
+	while [ $diff1 != 2 -o $diff2 != 2 ]
+	do
+		toss=$(( RANDOM%2 ))
+        	if [ $toss -eq 0 ]
+        	then
+                	headCount=$(( $headCount+1 ))
+        	else
+                	(( tailCount++ ))
+        	fi
+	done
 fi
 
 if [ $headCount -gt $tailCount ]
