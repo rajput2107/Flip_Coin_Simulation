@@ -3,7 +3,7 @@
 headCount=0
 tailCount=0
 
-while [ $headCount -lt 10 ] && [ $tailCount -lt 10 ]
+while [ $headCount -lt 21 ] && [ $tailCount -lt 21 ]
 do
 	toss=$(( RANDOM%2 ))
 	if [ $toss -eq 0 ]
@@ -13,4 +13,21 @@ do
 		(( tailCount++ ))
 	fi
 done
-echo $headCount $tailCount
+
+if [ $headCount -eq $tailCount ]
+then
+	echo "Tie"
+fi
+
+if [ $headCount -gt $tailCount ]
+then
+	echo "Head Wins"
+	echo "Score"
+	echo "Head= "$headCount" Tail= "$tailCount
+else
+	echo "Tail Wins"
+	echo "Score"
+        echo "Head= "$headCount" Tail= "$tailCount
+fi
+
+
