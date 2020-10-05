@@ -1,5 +1,5 @@
 #! /bin/bash
-
+# /flip coin
 headCount=0
 tailCount=0
 
